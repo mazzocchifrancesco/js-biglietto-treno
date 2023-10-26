@@ -13,19 +13,21 @@ const overDiscount = 0.4
 if (isNaN(eta)==true || isNaN(kmUtente)==true) {
     document.getElementById("testo").innerHTML = `I valori inseriti non sono accettati`;
 }
+else {
 
-
-var price = kmUtente*euroKm
-
-if ( eta < 18) {
-    var price=(price-(price*underDiscount)).toFixed(2)
+    
+    var price = kmUtente*euroKm
+    
+    if ( eta < 18) {
+        var price=(price-(price*underDiscount)).toFixed(2)
+    }
+    else if (eta >=65) {
+        var price=(price-(price*overDiscount)).toFixed(2)
+    }
+    
+    
+    document.getElementById("testo").innerHTML = `il costo del tuo biglietto è di ${price} €`;
 }
-else if (eta >=65) {
-    var price=(price-(price*overDiscount)).toFixed(2)
-}
-
-
-document.getElementById("testo").innerHTML = `il costo del tuo biglietto è di ${price} €`;
 
 
 
